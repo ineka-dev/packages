@@ -1,0 +1,23 @@
+{
+  "name": "@ineka/basics",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "rollup -cw",
+    "build": "rollup -c --environment NODE_ENV:production",
+    "lint": "eslint ./src --cache --fix --ext .js,.ts"
+  },
+  "dependencies": {
+    "@ineka/engine": "^2.0.0"
+  },
+  "devDependencies": {
+    "rollup": "^2.72.1",
+    "@ineka/eslint-config": "*",
+    "@ineka/rollup-config": "*",
+    "@ineka/tsconfig": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

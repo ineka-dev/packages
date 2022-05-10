@@ -3,18 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "packages/*",
+    "configs/*"
   ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint": "turbo run lint"
   },
   "devDependencies": {
-    "prettier": "latest",
-    "turbo": "latest"
+    "eslint": "^8.15.0",
+    "turbo": "latest",
+    "@ineka/eslint-config": "*"
   },
   "engines": {
     "npm": ">=7.0.0",

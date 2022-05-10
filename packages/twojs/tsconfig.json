@@ -1,0 +1,3 @@
+{
+  "extends": "@ineka/tsconfig/base.json",
+}

@@ -8,10 +8,12 @@ node_modules
 # testing
 coverage
 
-# next.js
-.next/
-out/
+# packages
 build
+dist
+
+# eslint
+.eslintcache
 
 # misc
 .DS_Store
