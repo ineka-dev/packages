@@ -33,3 +33,10 @@ yarn-error.log*
 
 # turbo
 .turbo
+
+# dev sandbox
+sandbox/**
+!sandbox/README.md
+
+# parcel
+.parcel-cache
