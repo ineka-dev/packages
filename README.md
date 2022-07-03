@@ -5,9 +5,10 @@ A place to find the official packages of the Ineka game engine ecosystem.
 ## Packages
 |                                     |                                                                      |
 | ----------------------------------- | -------------------------------------------------------------------- |
-| [basics](packages/basics) | A collection of nodes for basic game development usages.             |
-| [pixijs](packages/pixijs) | Brings [PixiJS](https://github.com/pixijs/pixijs) bindings for Ineka |
-| [twojs](packages/twojs)   | Brings [TwoJS](https://github.com/jonobr1/two.js) bindings for Ineka |
+| [basics](packages/basics)             | A collection of nodes for basic game development usages.             |
+| [asset-loader](packages/asset-loader) | A system for loading assets with Ineka.                              |
+| [pixijs](packages/pixijs)             | Brings [PixiJS](https://github.com/pixijs/pixijs) bindings for Ineka |
+| [twojs](packages/twojs)               | Brings [TwoJS](https://github.com/jonobr1/two.js) bindings for Ineka |
 
 ## Contributing
 Any help and contribution is welcome, feel free to submit issues and/or contribute to the project.
