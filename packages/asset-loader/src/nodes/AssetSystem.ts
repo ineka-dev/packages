@@ -3,7 +3,7 @@ import type { Asset } from '../types/Asset';
 import type { Loader } from '../types/Loader';
 
 export class AssetSystem extends OuterNode {
-  protected assets: Asset[] = [];
+  public assets: Map<string, Asset> = new Map();
   protected loaders: { [extension: string]: Loader; } = {};
 
   /**
@@ -19,13 +19,13 @@ export class AssetSystem extends OuterNode {
 
   /**
    * Load assets from files using the system loaders.
-   * @param {string[]} files Files to load.
+   * @param {string | { name: string, path: string }[]} files Files to load.
    * @param {(fulfilled: number, rejected: number) => void} progress
    * Function called each time the asset loading progresses.
    * @returns {Promise<(Asset | null)[]>}
    */
   public async loadFromFiles(
-    files: string[],
+    files: (string | { name: string, path: string })[],
     progress?: (fulfilled: number, rejected: number) => void,
   ) {
     const assetsToLoad: Promise<Asset>[] = [];
@@ -34,7 +34,9 @@ export class AssetSystem extends OuterNode {
 
     files.forEach((file) => {
       // Use loaders corresponding to the file extension.
-      const asset = this.loaders[this.getExtension(file)]?.load(file);
+      const asset = this.loaders[
+        this.getExtension(typeof file === 'string' ? file : file.path)
+      ]?.load(file);
       // Keep track of loading progress.
       if (progress) {
         asset.then(() => {
@@ -52,7 +54,7 @@ export class AssetSystem extends OuterNode {
     // Await loading of all assets.
     const loadedAssets = (await Promise.allSettled(assetsToLoad)).map((assetResult) => {
       if (assetResult.status === 'fulfilled') {
-        this.assets.push(assetResult.value);
+        this.assets.set(assetResult.value.alias ?? assetResult.value.id, assetResult.value);
         return assetResult.value;
       }
       return null;
@@ -66,7 +68,7 @@ export class AssetSystem extends OuterNode {
    * @param {string} file File to get the extension from.
    * @returns {string}
    */
-  protected getExtension(file: string) : string {
-    return file.split('?')[0].split('.').pop() || '';
+  protected getExtension(path: string): string {
+    return path.split('?')[0].split('.').pop() || '';
   }
 }

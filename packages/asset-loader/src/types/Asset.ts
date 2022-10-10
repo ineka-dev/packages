@@ -8,6 +8,10 @@ export interface Asset {
    */
   filepath: string;
   /**
+   * Asset's alias/name.
+   */
+  alias?: string;
+  /**
    * Element used to load the asset.
    */
   element?: HTMLElement;

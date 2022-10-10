@@ -1,11 +1,10 @@
 {
-  "name": "turborepo-basic-shared",
+  "name": "@ineka/packages",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
     "packages/*",
-    "configs/*",
-    "sandbox/*"
+    "configs/*"
   ],
   "scripts": {
     "build": "turbo run build",

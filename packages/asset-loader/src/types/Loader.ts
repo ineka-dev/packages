@@ -4,8 +4,8 @@ export interface Loader {
   /**
    * Loads the file and returns an asset.
    * @async
-   * @param {string} file File to load.
+   * @param {string | { name: string, path: string }} file File to load.
    * @virtual
    */
-  load: (file: string) => Promise<Asset>;
+  load: (file: string | { name: string, path: string }) => Promise<Asset>;
 }
